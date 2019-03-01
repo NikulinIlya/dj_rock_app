@@ -3,17 +3,16 @@
     <v-toolbar-side-icon></v-toolbar-side-icon>
 
     <v-toolbar-title class="white--text">Title</v-toolbar-title>
-
     <router-link
           v-for="link in links"
           :key="link"
-          :to="link"
+          :to="link.path"
       >
         <v-btn
             color="white"
             flat
             round>
-          {{ link }}
+          {{ link.name }}
         </v-btn>
       </router-link>
 
@@ -29,9 +28,12 @@
   export default {
     data: () => ({
       links: [
-        'Home',
-        'Rock Stars',
-        'About Us',
+        {'path': '/',
+        'name': 'Home'},
+        {'path': 'rockstars',
+        'name': 'Rock Stars'},
+        {'path': 'about',
+        'name': 'About Us'}
       ]
     })
   }

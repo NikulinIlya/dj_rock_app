@@ -2,7 +2,6 @@
   <v-footer
       height="auto"
       color="primary lighten-1"
-      fixed
   >
     <v-layout
         justify-center
@@ -12,13 +11,13 @@
       <router-link
           v-for="link in links"
           :key="link"
-          :to="link"
+          :to="link.path"
       >
         <v-btn
             color="white"
             flat
             round>
-          {{ link }}
+          {{ link.name }}
         </v-btn>
       </router-link>
       <v-flex
@@ -39,9 +38,12 @@
   export default {
     data: () => ({
       links: [
-        'Home',
-        'Rock Stars',
-        'About Us',
+        {'path': '/',
+        'name': 'Home'},
+        {'path': 'rockstars',
+        'name': 'Rock Stars'},
+        {'path': 'about',
+        'name': 'About Us'}
       ]
     })
   }
